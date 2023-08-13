@@ -14,4 +14,8 @@ export const Footer = styled.nav`
   }
 `;
 
-export const Styled = { Footer };
+export const StyledLink = styled.a`
+  text-decoration: none;
+`;
+
+export const Styled = { Footer, StyledLink };

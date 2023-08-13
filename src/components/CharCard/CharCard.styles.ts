@@ -14,6 +14,7 @@ export const CharCard = styled.div`
   img {
     width: 15rem;
     height: 15rem;
+    object-fit: cover;
   }
 `;
 
