@@ -4,7 +4,7 @@ export const Navigation = () => {
   return (
     <Styled.Navigation>
       <h3>Game of Thrones characters</h3>
-      <a>My Favorites</a>;
+      <a>My Favorites</a>
     </Styled.Navigation>
   );
 };

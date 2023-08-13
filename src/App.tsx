@@ -3,6 +3,8 @@ import { Navigation } from "./components/Navigation/Navigation";
 import { Footer } from "./components/Footer/Footer";
 import { Character } from "./types/Character.types";
 import { fetchCharacters } from "./api/fetchCharacters";
+import { Header } from "./components/Header/Header";
+import { ListSection } from "./components/ListSection/ListSection";
 
 const App: React.FC = () => {
   const [characters, setCharacters] = useState<Character[]>([]);
@@ -38,35 +40,40 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="App">
+    <div>
       <Navigation />
 
-      <ul>
-        {characters.map((character) => (
-          <li key={character.id}>
-            <img src={character.imageUrl} alt={character.fullName} />
-            {character.fullName}
-            {character.title === "Lady" || character.title === "Lord" ? (
-              <span className="crown-icon" title={character.title}>
-                👑
+      <Header characters={characters} />
+      <ListSection>
+        <ul>
+          {characters.map((character) => (
+            <li key={character.id}>
+              <img src={character.imageUrl} alt={character.fullName} />
+              {character.fullName}
+              {character.title === "Lady" || character.title === "Lord" ? (
+                <span className="crown-icon" title={character.title}>
+                  👑
+                </span>
+              ) : null}
+              <span
+                className={`star-icon ${
+                  favorites.some((fav) => fav.id === character.id)
+                    ? "active"
+                    : ""
+                }`}
+                onClick={() => toggleFavorite(character)}
+                title={
+                  favorites.some((fav) => fav.id === character.id)
+                    ? "Remove from Favorites"
+                    : "Add to Favorites"
+                }
+              >
+                ⭐
               </span>
-            ) : null}
-            <span
-              className={`star-icon ${
-                favorites.some((fav) => fav.id === character.id) ? "active" : ""
-              }`}
-              onClick={() => toggleFavorite(character)}
-              title={
-                favorites.some((fav) => fav.id === character.id)
-                  ? "Remove from Favorites"
-                  : "Add to Favorites"
-              }
-            >
-              ⭐
-            </span>
-          </li>
-        ))}
-      </ul>
+            </li>
+          ))}
+        </ul>
+      </ListSection>
 
       {/* My Favorites list */}
       <h2>My Favorites</h2>
