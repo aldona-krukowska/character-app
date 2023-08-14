@@ -94,6 +94,17 @@ export const SearchText = styled.div`
   flex-direction: column;
   gap: 2rem;
   padding: 2rem;
+
+  h4 {
+    font-size: 2rem;
+  }
+
+  input {
+    height: 2.5rem;
+    width: 25rem;
+    border: none;
+    border-radius: 0.3rem;
+  }
 `;
 
 export const Styled = {

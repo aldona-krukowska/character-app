@@ -64,7 +64,7 @@ export const ListSection = () => {
           </h4>
           <input
             type="text"
-            placeholder="Filter My Favorites"
+            placeholder="Search character..."
             onChange={(e) => handleFilterChange(e.target.value)}
           />
         </SearchText>
