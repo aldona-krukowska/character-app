@@ -11,7 +11,7 @@ export async function fetchCharacters(): Promise<Character[]> {
     }
     const data = await response.json();
     const charactersNotFromLannister = data.filter(
-      (character: Character) => character.title !== "House Lannister"
+      (character: Character) => character.family !== "House Lannister"
     );
     return charactersNotFromLannister;
   } catch (error) {

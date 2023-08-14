@@ -1,7 +1,18 @@
 import { useEffect, useState } from "react";
 import { fetchCharacters } from "../../api/fetchCharacters";
 import { Character } from "../../types/Character.types";
-import { CharBlock, Column, ColumnWrapper, Styled } from "./ListSection.styles";
+import {
+  BigImg,
+  CharBlock,
+  CharElement,
+  Column,
+  ColumnWrapper,
+  CrownIcon,
+  SearchBox,
+  SearchText,
+  StarIcon,
+  Styled,
+} from "./ListSection.styles";
 
 export const ListSection = () => {
   const [characters, setCharacters] = useState<Character[]>([]);
@@ -19,7 +30,8 @@ export const ListSection = () => {
     };
 
     fetchCharacterData();
-  }, []);
+    setFilteredFavorites(favorites);
+  }, [favorites]);
 
   const toggleFavorite = (character: Character) => {
     if (favorites.some((fav) => fav.id === character.id)) {
@@ -38,20 +50,39 @@ export const ListSection = () => {
 
   return (
     <Styled.ListSection>
+      <SearchBox>
+        <BigImg
+          src={
+            "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/i8AVUgpNXk7A/v1/-1x-1.png"
+          }
+          alt="Zdjęcie samochodu"
+        />
+        <SearchText>
+          <h4>
+            Search through the list of your favorite characters from Game of
+            Thrones
+          </h4>
+          <input
+            type="text"
+            placeholder="Filter My Favorites"
+            onChange={(e) => handleFilterChange(e.target.value)}
+          />
+        </SearchText>
+      </SearchBox>
       <ColumnWrapper>
         <Column>
           <ul>
             {characters.map((character) => (
               <CharBlock key={character.id}>
-                <img src={character.imageUrl} alt={character.fullName} />
-                <p>{character.fullName}</p>
-                {character.title.includes("Lady") ||
-                character.title.includes("Lord") ? (
-                  <span className="crown-icon" title={character.title}>
-                    👑
-                  </span>
-                ) : null}
-                <span
+                <CharElement>
+                  <img src={character.imageUrl} alt={character.fullName} />
+                  <p>{character.fullName}</p>
+                  {character.title.includes("Lady") ||
+                  character.title.includes("Lord") ? (
+                    <CrownIcon title={character.title}>👑</CrownIcon>
+                  ) : null}
+                </CharElement>
+                <StarIcon
                   className={`star-icon ${
                     favorites.some((fav) => fav.id === character.id)
                       ? "active"
@@ -64,8 +95,10 @@ export const ListSection = () => {
                       : "Add to Favorites"
                   }
                 >
-                  ⭐
-                </span>
+                  {favorites.some((fav) => fav.id === character.id)
+                    ? "⭐"
+                    : "➕"}
+                </StarIcon>
               </CharBlock>
             ))}
           </ul>
@@ -75,24 +108,21 @@ export const ListSection = () => {
           <h2>My Favorites</h2>
           <ul>
             {filteredFavorites.map((character) => (
-              <li key={character.id}>
-                <img src={character.imageUrl} alt={character.fullName} />
-                {character.fullName}
-                <span
+              <CharBlock key={character.id}>
+                <CharElement>
+                  <img src={character.imageUrl} alt={character.fullName} />
+                  {character.fullName}
+                </CharElement>
+                <StarIcon
                   className="star-icon active"
                   onClick={() => toggleFavorite(character)}
                   title="Remove from Favorites"
                 >
                   ⭐
-                </span>
-              </li>
+                </StarIcon>
+              </CharBlock>
             ))}
           </ul>
-          <input
-            type="text"
-            placeholder="Filter My Favorites"
-            onChange={(e) => handleFilterChange(e.target.value)}
-          />
         </Column>
       </ColumnWrapper>
     </Styled.ListSection>

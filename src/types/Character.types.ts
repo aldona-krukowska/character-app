@@ -4,4 +4,5 @@ export interface Character {
   fullName: string;
   imageUrl: string;
   title: string;
+  family: string;
 }

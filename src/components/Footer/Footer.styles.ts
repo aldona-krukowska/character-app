@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Footer = styled.nav`
   height: fit-content;
-  background-color: lightgrey;
   display: flex;
   flex-direction: column;
   align-items: center;
