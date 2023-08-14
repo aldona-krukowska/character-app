@@ -1,27 +1,38 @@
-# React + TypeScript + Vite
+# Hello Hapag-Lloyd! 👋
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## This is my Game of Thrones Character application
 
-Currently, two official plugins are available:
+This is a simple React application that displays a list of Game of Thrones characters and allows users to choose their favorite characters.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- Fetches Game of Thrones characters from an API.
+- Displays a list of characters, excluding characters from "House Lannister."
+- Allows users to mark characters as favorites and view their favorites list.
+- Shows which character is a Lady or a Lord.
+- Allows to search through the favorite characters list.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### In development
 
-- Configure the top-level `parserOptions` property like this:
+The application will use React Router for navigation and React Context for managing the favorites state.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+## Technologies
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- React.js
+- Typescript
+- styled-components
+- react-router-dom
+- Yarn + Vite
+
+## Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/aldona-krukowska/character-app.git
+   cd character-app
+   ```
+
+### P.S.
+
+I hope you like my code and I get feedback from you. It was a great recruitment task! 💪

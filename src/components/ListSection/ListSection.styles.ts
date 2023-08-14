@@ -8,6 +8,7 @@ export const ListSection = styled.div`
   align-items: center;
   justify-content: center;
   border-radius: 2rem;
+  padding-bottom: 5rem;
 
   h1 {
     font-size: 2rem;
