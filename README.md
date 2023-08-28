@@ -1,4 +1,4 @@
-# Hello Hapag-Lloyd! 👋
+# Hello! 👋
 
 ## This is my Game of Thrones Character application
 
@@ -35,4 +35,4 @@ The application will use React Router for navigation and React Context for manag
 
 ### P.S.
 
-I hope you like my code and I get feedback from you. It was a great recruitment task! 💪
+I hope you like my code and I get feedback from you! 💪
